@@ -2,6 +2,8 @@
 
 Simplify similarly looking `<button>` and `<a>` buttons.
 
+[![screenshot](https://raw.githubusercontent.com/FilipChalupa/nextjs-button-base/HEAD/screenshot.png)](https://nextjs-button-base.netlify.app)
+
 ## Installation
 
 ```bash
