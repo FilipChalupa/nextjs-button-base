@@ -1,12 +1,13 @@
 import React, { FunctionComponent } from 'react'
 import { ButtonBase } from '..'
-import { ButtonBaseProps } from '../index'
+import type { DistinctBaseButtonProps, SharedBaseButtonProps } from '../index'
 import './global.css'
 
 type ExampleButtonProps = {
 	variant?: 'primary' | 'secondary'
 	size?: 'small' | 'medium'
-} & ButtonBaseProps
+} & Omit<SharedBaseButtonProps, 'className'> &
+	DistinctBaseButtonProps
 
 const ExampleButton: FunctionComponent<ExampleButtonProps> = ({
 	variant = 'primary',

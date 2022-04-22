@@ -27,13 +27,18 @@ type ButtonResetProps = Omit<ButtonButtonProps, 'type'> & {
 	type: 'reset'
 }
 
-type SharedProps = {
+export type DistinctBaseButtonProps =
+	| ButtonLinkProps
+	| ButtonButtonProps
+	| ButtonSubmitProps
+	| ButtonResetProps
+
+export type SharedBaseButtonProps = {
 	className?: string
 	children?: React.ReactNode
 } & Pick<HTMLAttributes<HTMLAnchorElement | HTMLButtonElement>, 'id'>
 
-export type ButtonBaseProps = SharedProps &
-	(ButtonLinkProps | ButtonButtonProps | ButtonSubmitProps | ButtonResetProps)
+export type ButtonBaseProps = SharedBaseButtonProps & DistinctBaseButtonProps
 
 export const ButtonBase: FunctionComponent<ButtonBaseProps> = ({
 	children,
