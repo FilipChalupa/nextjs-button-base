@@ -1,3 +1,38 @@
 body {
 	font-family: sans-serif;
 }
+
+.button {
+	display: inline-block;
+	margin: 0;
+	border: none;
+	text-decoration: none;
+	border-radius: 0.5em;
+	padding: 0.75em 1em;
+	font-weight: bold;
+	color: #FFFFFF;
+	text-transform: uppercase;
+	line-height: 1.2;
+	cursor: pointer;
+	transition: transform 0.3s;
+}
+
+.button:hover {
+	transform: scale(1.05);
+}
+
+.button--variant-primary {
+	background-color: #2196F3;
+}
+
+.button--variant-secondary {
+	background-color: #FF9100;
+}
+
+.button--size-small {
+	font-size: 1em;
+}
+
+.button--size-medium {
+	font-size: 1.5em;
+}
