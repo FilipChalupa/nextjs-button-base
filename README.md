@@ -13,3 +13,7 @@ npm install nextjs-button-base
 ## How to use
 
 Create your own wrapper component. You can get inspired by [ExampleButton here](src/stories/ExampleButton.tsx) and [Storybook here](https://nextjs-button-base.netlify.app).
+
+## Development
+
+Run `npm start` and `npm run storybook` parallelly.
