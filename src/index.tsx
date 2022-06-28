@@ -39,7 +39,7 @@ export type SharedBaseButtonProps = {
 	children?: React.ReactNode
 } & Pick<
 	HTMLAttributes<HTMLAnchorElement | HTMLButtonElement>,
-	'id' | 'tabIndex' | 'onClick'
+	'id' | 'tabIndex' | 'onClick' | 'style'
 >
 
 export type ButtonBaseProps = SharedBaseButtonProps & DistinctBaseButtonProps
@@ -50,9 +50,10 @@ export const ButtonBase: FunctionComponent<ButtonBaseProps> = ({
 	id,
 	tabIndex,
 	onClick,
+	style,
 	...otherProps
 }) => {
-	const commonProps = { className, id, tabIndex, onClick }
+	const commonProps = { className, id, tabIndex, onClick, style }
 
 	if (
 		otherProps.type === 'button' ||
