@@ -11,17 +11,13 @@ import { assertNever } from './utils/assertNever'
 
 type ButtonLinkProps = {
 	type: 'link'
-} & Pick<
-	DetailedHTMLProps<ButtonHTMLAttributes<HTMLAnchorElement>, HTMLAnchorElement>,
-	'onClick'
-> &
-	NextLinkProps
+} & NextLinkProps
 
 type ButtonButtonProps = {
 	type: 'button'
 } & Pick<
 	DetailedHTMLProps<ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement>,
-	'onClick' | 'disabled'
+	'disabled'
 >
 
 type ButtonSubmitProps = Omit<ButtonButtonProps, 'type'> & {
@@ -43,7 +39,7 @@ export type SharedBaseButtonProps = {
 	children?: React.ReactNode
 } & Pick<
 	HTMLAttributes<HTMLAnchorElement | HTMLButtonElement>,
-	'id' | 'tabIndex'
+	'id' | 'tabIndex' | 'onClick'
 >
 
 export type ButtonBaseProps = SharedBaseButtonProps & DistinctBaseButtonProps
@@ -53,9 +49,10 @@ export const ButtonBase: FunctionComponent<ButtonBaseProps> = ({
 	className,
 	id,
 	tabIndex,
+	onClick,
 	...otherProps
 }) => {
-	const commonProps = { className, id, tabIndex }
+	const commonProps = { className, id, tabIndex, onClick }
 
 	if (
 		otherProps.type === 'button' ||
@@ -66,7 +63,6 @@ export const ButtonBase: FunctionComponent<ButtonBaseProps> = ({
 			<button
 				{...commonProps}
 				type={otherProps.type}
-				onClick={otherProps.onClick}
 				disabled={otherProps.disabled}
 			>
 				{children}
@@ -84,9 +80,7 @@ export const ButtonBase: FunctionComponent<ButtonBaseProps> = ({
 				prefetch={otherProps.prefetch}
 				locale={otherProps.locale}
 			>
-				<a onClick={otherProps.onClick} {...commonProps}>
-					{children}
-				</a>
+				<a {...commonProps}>{children}</a>
 			</Link>
 		)
 	} else {
