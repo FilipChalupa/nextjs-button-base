@@ -7,13 +7,18 @@ import React, {
 } from 'react'
 import { assertNever } from './utils/assertNever'
 
+// @TODO: find more general approach for common props like onClick onMouseDown …
+
 type ButtonLinkProps = {
 	type: 'link'
-} & NextLinkProps
+} & Pick<
+	DetailedHTMLProps<ButtonHTMLAttributes<HTMLAnchorElement>, HTMLAnchorElement>,
+	'onClick'
+> &
+	NextLinkProps
 
 type ButtonButtonProps = {
 	type: 'button'
-	onClick?: React.MouseEventHandler<HTMLButtonElement>
 } & Pick<
 	DetailedHTMLProps<ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement>,
 	'onClick' | 'disabled'
@@ -79,7 +84,9 @@ export const ButtonBase: FunctionComponent<ButtonBaseProps> = ({
 				prefetch={otherProps.prefetch}
 				locale={otherProps.locale}
 			>
-				<a {...commonProps}>{children}</a>
+				<a onClick={otherProps.onClick} {...commonProps}>
+					{children}
+				</a>
 			</Link>
 		)
 	} else {
