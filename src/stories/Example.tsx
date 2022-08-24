@@ -7,10 +7,10 @@ export const Example: FunctionComponent = () => {
 		<>
 			<h1>Button example</h1>
 			<h2>
-				Link <code>{'<a href="https://example.com">'}</code>
+				Anchor link <code>{'<a href="https://example.com">'}</code>
 			</h2>
 			<ExampleButton type="link" href="https://example.com">
-				Link
+				Anchor link
 			</ExampleButton>
 			<h2>
 				Button <code>{'<button type="button">'}</code>

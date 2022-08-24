@@ -1,5 +1,6 @@
 import Link, { LinkProps as NextLinkProps } from 'next/link'
 import React, {
+	AnchorHTMLAttributes,
 	ButtonHTMLAttributes,
 	DetailedHTMLProps,
 	FunctionComponent,
@@ -11,7 +12,14 @@ import { assertNever } from './utils/assertNever'
 
 type ButtonLinkProps = {
 	type: 'link'
-} & NextLinkProps
+} & NextLinkProps &
+	Pick<
+		DetailedHTMLProps<
+			AnchorHTMLAttributes<HTMLAnchorElement>,
+			HTMLAnchorElement
+		>,
+		'target' | 'rel'
+	>
 
 type ButtonButtonProps = {
 	type: 'button'
@@ -71,6 +79,11 @@ export const ButtonBase: FunctionComponent<ButtonBaseProps> = ({
 			</button>
 		)
 	} else if (otherProps.type === 'link') {
+		const anchorProps = {
+			...commonProps,
+			target: otherProps.target,
+			rel: otherProps.rel,
+		}
 		return (
 			<Link
 				href={otherProps.href}
@@ -82,7 +95,7 @@ export const ButtonBase: FunctionComponent<ButtonBaseProps> = ({
 				prefetch={otherProps.prefetch}
 				locale={otherProps.locale}
 			>
-				<a {...commonProps}>{children}</a>
+				<a {...anchorProps}>{children}</a>
 			</Link>
 		)
 	} else {
