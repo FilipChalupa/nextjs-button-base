@@ -18,14 +18,14 @@ type ButtonLinkProps = {
 			AnchorHTMLAttributes<HTMLAnchorElement>,
 			HTMLAnchorElement
 		>,
-		'target' | 'rel'
+		'ref' | 'target' | 'rel'
 	>
 
 type ButtonButtonProps = {
 	type: 'button'
 } & Pick<
 	DetailedHTMLProps<ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement>,
-	'disabled'
+	'ref' | 'disabled'
 >
 
 type ButtonSubmitProps = Omit<ButtonButtonProps, 'type'> & {
@@ -83,6 +83,7 @@ export const ButtonBase: FunctionComponent<ButtonBaseProps> = ({
 				{...commonProps}
 				type={otherProps.type}
 				disabled={otherProps.disabled}
+				ref={otherProps.ref}
 			>
 				{children}
 			</button>
@@ -92,6 +93,7 @@ export const ButtonBase: FunctionComponent<ButtonBaseProps> = ({
 			...commonProps,
 			target: otherProps.target,
 			rel: otherProps.rel,
+			ref: otherProps.ref,
 		}
 		return (
 			<Link
