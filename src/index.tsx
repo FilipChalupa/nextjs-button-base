@@ -113,7 +113,7 @@ export const ButtonBase = forwardRef<
 					passHref={otherProps.passHref}
 					prefetch={otherProps.prefetch}
 					locale={otherProps.locale}
-					legacyBehavior
+					legacyBehavior // @TODO: remove this and nested <a> once https://www.npmjs.com/package/storybook-addon-next-router updates to newer version with Next 13 support
 				>
 					<a {...anchorProps}>{children}</a>
 				</Link>
