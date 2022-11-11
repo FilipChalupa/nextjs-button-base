@@ -5,7 +5,7 @@ import React, {
 	DetailedHTMLProps,
 	forwardRef,
 	HTMLAttributes,
-	LegacyRef,
+	Ref,
 } from 'react'
 import { assertNever } from './utils/assertNever'
 
@@ -91,7 +91,7 @@ export const ButtonBase = forwardRef<
 					{...commonProps}
 					type={otherProps.type}
 					disabled={otherProps.disabled}
-					ref={ref as LegacyRef<HTMLButtonElement>}
+					ref={ref as Ref<HTMLButtonElement>}
 				>
 					{children}
 				</button>
@@ -101,7 +101,7 @@ export const ButtonBase = forwardRef<
 				...commonProps,
 				target: otherProps.target,
 				rel: otherProps.rel,
-				ref: ref as LegacyRef<HTMLAnchorElement>,
+				ref: ref as Ref<HTMLAnchorElement>,
 			}
 			return (
 				<Link
@@ -113,6 +113,7 @@ export const ButtonBase = forwardRef<
 					passHref={otherProps.passHref}
 					prefetch={otherProps.prefetch}
 					locale={otherProps.locale}
+					legacyBehavior
 				>
 					<a {...anchorProps}>{children}</a>
 				</Link>
