@@ -7,6 +7,7 @@
 	"types": "./dist/index.d.ts",
 	"scripts": {
 		"start": "rollup --configPlugin typescript -c -w",
+		"dev": "npm start",
 		"build": "rollup --configPlugin typescript -c",
 		"prepare": "npm run build",
 		"storybook": "start-storybook -p 6006",
