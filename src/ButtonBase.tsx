@@ -113,9 +113,9 @@ export const ButtonBase = forwardRef<
 					passHref={otherProps.passHref}
 					prefetch={otherProps.prefetch}
 					locale={otherProps.locale}
-					{...anchorProps}
+					legacyBehavior // @TODO: remove this and nested <a>
 				>
-					{children}
+					<a {...anchorProps}>{children}</a>
 				</Link>
 			)
 		} else {
