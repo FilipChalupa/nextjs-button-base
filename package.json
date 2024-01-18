@@ -1,6 +1,6 @@
 {
 	"name": "nextjs-button-base",
-	"version": "1.0.3",
+	"version": "1.0.4",
 	"description": "Button base component for Next.js.",
 	"main": "./dist/index.js",
 	"module": "./dist/index.es.js",
