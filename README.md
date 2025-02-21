@@ -16,4 +16,4 @@ Create your own wrapper component. You can get inspired by [ExampleButton here](
 
 ## Development
 
-Run `npm start` and `npm run storybook` parallelly.
+Run `npm start` and `npm run dev:example` parallelly.
