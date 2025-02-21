@@ -10,8 +10,8 @@
 		"dev": "npm start",
 		"build": "rollup --configPlugin typescript -c --configImportAttributesKey with",
 		"prepare": "npm run build",
-		"dev:example": "start-storybook -p 6006",
-		"build:example": "npm run build && build-storybook"
+		"storybook": "storybook dev -p 6006",
+		"build-storybook": "storybook build"
 	},
 	"repository": {
 		"type": "git",
@@ -31,9 +31,17 @@
 	"license": "ISC",
 	"devDependencies": {
 		"@babel/core": "^7.20.2",
+		"@chromatic-com/storybook": "^3.2.4",
 		"@rollup/plugin-commonjs": "^28.0.2",
 		"@rollup/plugin-node-resolve": "^16.0.0",
 		"@rollup/plugin-typescript": "^12.1.2",
+		"@storybook/addon-essentials": "^8.5.8",
+		"@storybook/addon-interactions": "^8.5.8",
+		"@storybook/addon-onboarding": "^8.5.8",
+		"@storybook/blocks": "^8.5.8",
+		"@storybook/nextjs": "^8.5.8",
+		"@storybook/react": "^8.5.8",
+		"@storybook/test": "^8.5.8",
 		"@types/react": "^18.0.25",
 		"babel-loader": "^9.1.0",
 		"next": "^14.0.4",
@@ -44,6 +52,7 @@
 		"rollup-plugin-delete": "^2.0.0",
 		"rollup-plugin-peer-deps-external": "^2.2.4",
 		"rollup-plugin-typescript2": "^0.36.0",
+		"storybook": "^8.5.8",
 		"typescript": "^5.7.3"
 	},
 	"peerDependencies": {
